@@ -50,10 +50,10 @@ jobs:
       run: gradle prepPyGhidra
 
     - name: Unit test report
-      run: gradle gradle unitTestReport
+      run: gradle unitTestReport
 
     - name: Integration tests
-      run: gradle integrationTest
+      run: gradle integrationTest --parallel
 
     - uses: actions/upload-artifact@v4
       with:
