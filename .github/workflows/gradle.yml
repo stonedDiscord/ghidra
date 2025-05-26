@@ -40,8 +40,6 @@ jobs:
   dependency-submission:
 
     runs-on: ubuntu-latest
-    env:
-      gradle-version: 8.14
     permissions:
       contents: write
 
@@ -56,3 +54,5 @@ jobs:
         
     - name: Generate and submit dependency graph
       uses: gradle/actions/dependency-submission@v4.4.0
+      with:
+        gradle-version: '8.14'
