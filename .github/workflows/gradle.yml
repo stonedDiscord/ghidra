@@ -34,6 +34,15 @@ jobs:
     - name: Build natives
       run: gradle buildNatives
 
+    - name: Compile sleigh files
+      run: gradle sleighCompile
+
+    - name: Build Javadoc
+      run: gradle createJavadocs
+
+    - name: Build Python3 package
+      run: gradle buildPyPackage
+
     - name: Build with Gradle Wrapper
       run: gradle buildGhidra
 
