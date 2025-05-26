@@ -49,14 +49,12 @@ jobs:
     - name: Prepare PyGhidra
       run: gradle prepPyGhidra
 
-    - name: Test report
-      run: gradle combinedTestReport
+    - name: Unit test report
+      run: gradle gradle unitTestReport
+
+    - name: Integration tests
+      run: gradle integrationTest
 
     - uses: actions/upload-artifact@v4
       with:
-        path: build/dist
-
-    - name: Generate and submit dependency graph
-      uses: gradle/actions/dependency-submission@v4.4.0
-      with:
-        gradle-version: '8.14'
+        path: build
