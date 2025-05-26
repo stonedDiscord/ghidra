@@ -28,12 +28,20 @@ jobs:
     - name: Fetch dependencies
       run: gradle -I gradle/support/fetchDependencies.gradle
 
+    - name: Prepare Maven
+      run: gradle prepdev
+
+    - name: Build natives
+      run: gradle buildNatives
+
     - name: Build with Gradle Wrapper
       run: gradle buildGhidra
 
   dependency-submission:
 
     runs-on: ubuntu-latest
+    env:
+      gradle-version: 8.14
     permissions:
       contents: write
 
@@ -46,8 +54,5 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         
-    - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@v4.4.0
-      
     - name: Generate and submit dependency graph
       uses: gradle/actions/dependency-submission@v4.4.0
