@@ -37,6 +37,12 @@ jobs:
     - name: Build with Gradle Wrapper
       run: gradle buildGhidra
 
+    - name: Prepare PyGhidra
+      run: gradle prepPyGhidra
+
+    - name: Test report
+      run: gradle combinedTestReport
+
     - uses: actions/upload-artifact@v4
       with:
         path: build/dist
