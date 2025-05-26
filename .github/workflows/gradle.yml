@@ -44,13 +44,13 @@ jobs:
       run: gradle buildPyPackage
 
     - name: Build with Gradle Wrapper
-      run: gradle buildGhidra
+      run: gradle buildGhidra --parallel
 
     - name: Prepare PyGhidra
       run: gradle prepPyGhidra
 
     - name: Unit test report
-      run: gradle unitTestReport
+      run: gradle unitTestReport --parallel
 
     - name: Integration tests
       run: gradle integrationTest --parallel
