@@ -37,21 +37,10 @@ jobs:
     - name: Build with Gradle Wrapper
       run: gradle buildGhidra
 
-  dependency-submission:
-
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
-    steps:
-    - uses: actions/checkout@v4
-    
-    - name: Set up JDK 21
-      uses: actions/setup-java@v4
+    - uses: actions/upload-artifact@v4
       with:
-        java-version: '21'
-        distribution: 'temurin'
-        
+        path: build/dist
+
     - name: Generate and submit dependency graph
       uses: gradle/actions/dependency-submission@v4.4.0
       with:
