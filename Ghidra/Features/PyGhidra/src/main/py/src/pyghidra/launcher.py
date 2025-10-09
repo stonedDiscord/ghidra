@@ -429,6 +429,14 @@ class PyGhidraLauncher:
             **jpype_kwargs
         )
 
+        # Remove CWD from sys.path so we don't try to import from unintentional directories
+        # (i.e, an unrelated "ghidra" directory the user may have created)
+        try:
+            sys.path.remove(os.getcwd())
+        except ValueError:
+            # CWD wasn't present on sys.path
+            pass
+
         # Install hooks into python importlib
         sys.meta_path.append(_PyGhidraImportLoader())
         sys.meta_path.append(_GhidraBundleFinder())
@@ -650,6 +658,7 @@ class _PyGhidraStdOut:
 
     def __init__(self, stream):
         self._stream = stream
+        self.is_error = stream == sys.stderr
 
     def _get_current_script(self) -> "PyGhidraScript":
         for entry in inspect.stack():
@@ -660,7 +669,7 @@ class _PyGhidraStdOut:
     def flush(self):
         script = self._get_current_script()
         if script is not None:
-            writer = script._script.writer
+            writer = script._script.errorWriter if self.is_error else script._script.writer
             if writer is not None:
                 writer.flush()
                 return
@@ -670,7 +679,7 @@ class _PyGhidraStdOut:
     def write(self, s: str) -> int:
         script = self._get_current_script()
         if script is not None:
-            writer = script._script.writer
+            writer = script._script.errorWriter if self.is_error else script._script.writer
             if writer is not None:
                 writer.write(s)
                 return len(s)

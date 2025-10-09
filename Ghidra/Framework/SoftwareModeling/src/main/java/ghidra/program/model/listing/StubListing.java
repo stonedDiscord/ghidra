@@ -83,22 +83,22 @@ public class StubListing implements Listing {
 	@Override
 	public AddressIterator getCommentAddressIterator(CommentType commentType,
 			AddressSetView addrSet, boolean forward) {
-		throw new UnsupportedOperationException();
+		return AddressIterator.EMPTY_ITERATOR;
 	}
 
 	@Override
 	public AddressIterator getCommentAddressIterator(AddressSetView addrSet, boolean forward) {
-		throw new UnsupportedOperationException();
+		return AddressIterator.EMPTY_ITERATOR;
 	}
 
 	@Override
 	public long getCommentAddressCount() {
-		throw new UnsupportedOperationException();
+		return 0;
 	}
 
 	@Override
 	public String getComment(CommentType commentType, Address address) {
-		throw new UnsupportedOperationException();
+		return null;
 	}
 
 	@Override
@@ -264,21 +264,6 @@ public class StubListing implements Listing {
 
 	@Override
 	public CodeUnit getDefinedCodeUnitBefore(Address addr) {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public DataIterator getCompositeData(boolean forward) {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public DataIterator getCompositeData(Address start, boolean forward) {
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public DataIterator getCompositeData(AddressSetView addrSet, boolean forward) {
 		throw new UnsupportedOperationException();
 	}
 
