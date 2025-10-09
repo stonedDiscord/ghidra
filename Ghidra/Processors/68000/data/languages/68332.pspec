@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<processor_spec>
+
+  <properties>
+    <property key="emulateInstructionStateModifierClass" value="ghidra.program.emulation.m68kEmulateInstructionStateModifier"/>
+    <property key="assemblyRating:68000:BE:32:default" value="PLATINUM"/>
+  </properties>
+
+  <programcounter register="PC"/> 
+
+  <default_symbols>
+  
+    <symbol name="RESET_ISP" address="ram:0x000000" entry="true"/>
+    <symbol name="RESET_PC" address="ram:0x000004" entry="true"/>
+    <symbol name="BUS_ERROR" address="ram:0x000008" entry="true"/>
+    <symbol name="ADDRESS_ERROR" address="ram:0x00000c" entry="true"/>
+    <symbol name="ILLEGAL_INSTRUCTION" address="ram:0x000010" entry="true"/>
+    <symbol name="ZERO_DIVISION" address="ram:0x000014" entry="true"/>
+    <symbol name="CHK" address="ram:0x000018" entry="true"/>
+    <symbol name="TRAP" address="ram:0x00001c" entry="true"/>
+    <symbol name="PRIVILEGE_VIOLATION" address="ram:0x000020" entry="true"/>
+    <symbol name="TRACE" address="ram:0x000024" entry="true"/>
+    <symbol name="LINE_1010_EMULATOR" address="ram:0x000028" entry="true"/>
+    <symbol name="LINE_1111_EMULATOR" address="ram:0x00002c" entry="true"/>
+    <symbol name="HARDWARE_BREAKPOINT" address="ram:0x000030" entry="true"/>
+    <symbol name="SPURIOUS_INTERRUPT" address="ram:0x00006c" entry="true"/>
+    <symbol name="LEVEL_1_INTERRUPT" address="ram:0x000064" entry="true"/>
+    <symbol name="LEVEL_2_INTERRUPT" address="ram:0x000068" entry="true"/>
+    <symbol name="LEVEL_3_INTERRUPT" address="ram:0x00006c" entry="true"/>
+    <symbol name="LEVEL_4_INTERRUPT" address="ram:0x000070" entry="true"/>
+    <symbol name="LEVEL_5_INTERRUPT" address="ram:0x000074" entry="true"/>
+    <symbol name="LEVEL_6_INTERRUPT" address="ram:0x000078" entry="true"/>
+    <symbol name="LEVEL_7_INTERRUPT" address="ram:0x00007c" entry="true"/>
+
+    <symbol name="SIMCR" address="ram:0xfffffa00"/>
+    <symbol name="SIMTR" address="ram:0xfffffa02"/>
+    <symbol name="SYNCR" address="ram:0xfffffa04"/>
+    <symbol name="RSR" address="ram:0xfffffa06"/>
+    <symbol name="SIMTRE" address="ram:0xfffffa08"/>
+    <symbol name="PORTE0" address="ram:0xfffffa10"/>
+    <symbol name="PORTE1" address="ram:0xfffffa12"/>
+    <symbol name="DDRE" address="ram:0xfffffa14"/>
+    <symbol name="PEPAR" address="ram:0xfffffa16"/>
+    <symbol name="PORTF0" address="ram:0xfffffa18"/>
+    <symbol name="PORTF1" address="ram:0xfffffa1a"/>
+    <symbol name="DDRF" address="ram:0xfffffa1c"/>
+    <symbol name="PFPAR" address="ram:0xfffffa1e"/>
+    <symbol name="SYPCR" address="ram:0xfffffa20"/>
+    <symbol name="PICR" address="ram:0xfffffa22"/>
+    <symbol name="PITR" address="ram:0xfffffa24"/>
+    <symbol name="SWSR" address="ram:0xfffffa26"/>
+    <symbol name="TSTMSRA" address="ram:0xfffffa30"/>
+    <symbol name="TSTMSRB" address="ram:0xfffffa32"/>
+    <symbol name="TSTSC" address="ram:0xfffffa34"/>
+    <symbol name="TSTRC" address="ram:0xfffffa36"/>
+    <symbol name="CREG" address="ram:0xfffffa38"/>
+    <symbol name="DREG" address="ram:0xfffffa3a"/>
+    <symbol name="PORTC" address="ram:0xfffffa40"/>
+    <symbol name="CSPAR0" address="ram:0xfffffa44"/>
+    <symbol name="CSPAR1" address="ram:0xfffffa46"/>
+    <symbol name="CSBARBT" address="ram:0xfffffa48"/>
+    <symbol name="CSORBT" address="ram:0xfffffa4a"/>
+    <symbol name="CSBAR0" address="ram:0xfffffa4c"/>
+    <symbol name="CSOR0" address="ram:0xfffffa4e"/>
+    <symbol name="CSBAR1" address="ram:0xfffffa50"/>
+    <symbol name="CSOR1" address="ram:0xfffffa52"/>
+    <symbol name="CSBAR2" address="ram:0xfffffa54"/>
+    <symbol name="CSOR2" address="ram:0xfffffa56"/>
+    <symbol name="CSBAR3" address="ram:0xfffffa58"/>
+    <symbol name="CSOR3" address="ram:0xfffffa5a"/>
+    <symbol name="CSBAR4" address="ram:0xfffffa5c"/>
+    <symbol name="CSOR4" address="ram:0xfffffa5e"/>
+    <symbol name="CSBAR5" address="ram:0xfffffa60"/>
+    <symbol name="CSOR5" address="ram:0xfffffa62"/>
+    <symbol name="CSBAR6" address="ram:0xfffffa64"/>
+    <symbol name="CSOR6" address="ram:0xfffffa66"/>
+    <symbol name="CSBAR7" address="ram:0xfffffa68"/>
+    <symbol name="CSOR7" address="ram:0xfffffa6a"/>
+    <symbol name="CSBAR8" address="ram:0xfffffa6c"/>
+    <symbol name="CSOR8" address="ram:0xfffffa6e"/>
+    <symbol name="CSBAR9" address="ram:0xfffffa70"/>
+    <symbol name="CSOR9" address="ram:0xfffffa72"/>
+    <symbol name="CSBAR10" address="ram:0xfffffa74"/>
+    <symbol name="CSOR10" address="ram:0xfffffa76"/>
+
+    <symbol name="QSMCR" address="ram:0xfffffc00"/>
+    <symbol name="QTEST" address="ram:0xfffffc02"/>
+    <symbol name="QI" address="ram:0xfffffc04"/>
+    <symbol name="SCICR0" address="ram:0xfffffc08"/>
+    <symbol name="SCICR1" address="ram:0xfffffc0a"/>
+    <symbol name="SCSR" address="ram:0xfffffc0c"/>
+    <symbol name="SCDR" address="ram:0xfffffc0e"/>
+    <symbol name="PORTQS" address="ram:0xfffffc14"/>
+    <symbol name="PQS" address="ram:0xfffffc16"/>
+    <symbol name="SPCR0" address="ram:0xfffffc18"/>
+    <symbol name="SPCR1" address="ram:0xfffffc1a"/>
+    <symbol name="SPCR2" address="ram:0xfffffc1c"/>
+    <symbol name="SPI" address="ram:0xfffffc1e"/>
+    <symbol name="rr" address="ram:0xfffffd00"/>
+    <symbol name="tr" address="ram:0xfffffd20"/>
+    <symbol name="cr" address="ram:0xfffffd40"/>
+        
+  </default_symbols>
+
+  <default_memory_blocks>
+    <memory_block name="sim" start_address="ram:0xfffffa00" length="0x80" initialized="false"/>
+    <memory_block name="tpuramcntl" start_address="ram:0xfffffb00" length="0x40" initialized="false"/>
+    <memory_block name="qsm" start_address="ram:0xfffffc00" length="0x200" initialized="false"/>
+    <memory_block name="tpu" start_address="ram:0xfffffe00" length="0x200" initialized="false"/>
+  </default_memory_blocks>
+
+
+</processor_spec>
