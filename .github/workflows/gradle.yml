@@ -22,7 +22,9 @@ jobs:
         distribution: 'temurin'
 
     - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@v4.4.0
+      uses: gradle/actions/setup-gradle@v5
+      with:
+        gradle-version: 8.14.3
 
     - name: Fetch dependencies
       run: gradle -I gradle/support/fetchDependencies.gradle
@@ -67,7 +69,9 @@ jobs:
         distribution: 'temurin'
 
     - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@v4.4.0
+      uses: gradle/actions/setup-gradle@v5
+      with:
+        gradle-version: 8.14.3
 
     - name: Fetch dependencies
       run: gradle -I gradle/support/fetchDependencies.gradle
@@ -93,7 +97,9 @@ jobs:
         distribution: 'temurin'
 
     - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@v4.4.0
+      uses: gradle/actions/setup-gradle@v5
+      with:
+        gradle-version: 8.14.3
 
     - name: Fetch dependencies
       run: gradle -I gradle/support/fetchDependencies.gradle
