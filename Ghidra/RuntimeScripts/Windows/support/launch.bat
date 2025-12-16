@@ -168,6 +168,16 @@ if "%LS_JAVA_HOME%" == "" (
 )
 set "JAVA_CMD=%LS_JAVA_HOME%\bin\java"
 
+:: Get the configurable environment variables from the launch properties
+:: Only set them if they are currently undefined
+for /f "delims=*" %%i in ('call "%JAVA_CMD%" -cp "%LS_CPATH%" LaunchSupport "%INSTALL_DIR%" -envvars') do (
+	for /f "tokens=1* delims==" %%a in ("%%i") do (
+		if not defined %%a (
+			set %%a=%%b
+		)
+	)
+)
+
 :: Get the configurable VM arguments from the launch properties
 for /f "delims=*" %%i in ('call "%JAVA_CMD%" -cp "%LS_CPATH%" LaunchSupport "%INSTALL_DIR%" -vmargs') do set VMARG_LIST=!VMARG_LIST! %%i
 
@@ -217,7 +227,7 @@ set CMD_ARGS=%FORCE_JAVA_VERSION% %JAVA_USER_HOME_DIR_OVERRIDE% %VMARG_LIST% -cp
 
 if "%BACKGROUND%"=="y" (
 	set JAVA_CMD=!JAVA_CMD!w
-	start "%APPNAME%" /I /B "!JAVA_CMD!" %CMD_ARGS%
+	start "%APPNAME%" /B "!JAVA_CMD!" %CMD_ARGS%
 	
 	REM If our process dies immediately, output something so the user knows to run in debug mode.
 	REM Otherwise they'll never see any error output from background mode.
